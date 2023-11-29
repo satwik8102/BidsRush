@@ -36,7 +36,7 @@ public class DownloadJSON extends HttpServlet {
 protected void service(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
     try{
         Class.forName("com.mysql.jdbc.Driver");
-        java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/MyEbayDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","");
+        java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/MyEbayDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","MySQL1234");
         response.setContentType("application/json");
         String filename="GenerateJSON_"+System.currentTimeMillis()+".json";
         response.setHeader("Content-disposition","attachment;filename=" + filename);
