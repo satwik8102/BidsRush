@@ -27,13 +27,22 @@ public class LoginServlet extends HttpServlet {
 
         try {
             String v_flag = request.getParameter("visitor_flag");
+            String r_flag = request.getParameter("registration_flag");
+            
             if (v_flag != null && !v_flag.isEmpty()) {
                 if (v_flag.equals("Y")) {
                     HttpSession session = request.getSession();
                     session.setAttribute("user_type", "visitor");
                     response.sendRedirect("homepage");
                 }
-            } else {
+            } 
+            else if(r_flag != null && !r_flag.isEmpty()){
+                if (r_flag.equals("Y")) {
+                    
+                    response.sendRedirect("signup.jsp");
+                }
+            }
+            else {
                 String uname = request.getParameter("usr");
                 String pwd = request.getParameter("pwd");
                 Class.forName("com.mysql.jdbc.Driver");

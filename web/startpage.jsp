@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>biddit - Welcome!</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BidsRush - Welcome!</title>
         <link rel="stylesheet" href="./css/startpage.css">
         <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="./img/favicon.ico" type="image/x-icon">            
@@ -33,25 +34,8 @@
             <img src="./img/logo/logo_350x150.png" class="logo" alt="Logo 350x150"/>
         </div>
         <div class="form">
-            <ul class="tab-group">
-                <%  if (session.getAttribute("registration_tab") != null) {
-                        if (session.getAttribute("registration_tab").equals("Y")) { %>
-                <li class="tab"><a href="#login">Log In</a></li>
-                <li class="tab active"><a href="#signup">Sign Up</a></li>
-                <script>
-                    window.onload = function () {
-                        $('#login').hide();
-                        $('#signup').fadeIn(600);
-                    };
-                </script>
-                <%      }
-                    session.removeAttribute("registration_tab");
-                } else { %>
-                <li class="tab active"><a href="#login">Log In</a></li>
-                <li class="tab"><a href="#signup">Sign Up</a></li>
-                    <%  }%>                
-            </ul>
-            <div class="tab-content">
+            
+           <div class="tab-content">
                 <div id="login">    
                     <form action="LoginServlet" method="post">
 
@@ -132,8 +116,11 @@
                     </form>
 
                 </div>
-            </div>
-
+            </div> 
+            <form >
+                <!-- <input type="hidden" name="registration_flag" value="Y"><br> -->
+                <button onclick="signIn()" class="visitor" type="button"/>New here? Sign up now</button>
+            </form>
             <form action="LoginServlet" method="post">
                 <input type="hidden" name="visitor_flag" value="Y"><br>
                 <button class="visitor" type="submit"/>Just a visitor? Click here!</button>
@@ -141,15 +128,36 @@
         </div>
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <script>
+               function signIn(){
 
-                    $('.tab a').on('click', function (e) {
-                        e.preventDefault();
-                        $(this).parent().addClass('active');
-                        $(this).parent().siblings().removeClass('active');
-                        target = $(this).attr('href');
-                        $('.tab-content > div').not(target).hide();
-                        $(target).fadeIn(600);
-                    });
+    let outh2Endpoint = "https://accounts.google.com/o/oauth2/v2/auth"
+
+    let form = document.createElement('form')
+    form.setAttribute('method','GET')
+    form.setAttribute('action',outh2Endpoint)
+
+    let params = {
+        "client_id" : "583718560148-aftfkjit2vhdbrv8e8mfebn01khkefn7.apps.googleusercontent.com",
+        "redirect_uri": "http://localhost:8080/signup.jsp",
+        "response_type" : "token",
+        "scope": "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
+        "include_granted_scopes" : 'true',
+        "state" : 'pass-through-value'
+    };
+
+    for(var p in params){
+        let input = document.createElement('input');
+        input.setAttribute('type','hidden');
+        input.setAttribute('name',p);
+        input.setAttribute('value',params[p]);
+        form.appendChild(input)
+    }
+
+    document.body.appendChild(form);
+
+    form.submit();
+}
+                    
         </script>
     </body>
 </html>
