@@ -67,7 +67,7 @@
 
                 <div class="info_section">
                     <div class="title">
-                        <span> <%=rs.getString("seller_id")%> </span>
+                        <span>User: <%=rs.getString("auname")%> </span>
                     </div>
                     <div class="half_panel" style="float: left;">
                         Best Offer: <%=rs.getString("currently")%> </br>

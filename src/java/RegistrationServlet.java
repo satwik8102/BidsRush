@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Random;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 
@@ -26,6 +27,7 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
+            String auname;
             String uname = request.getParameter("uname");
             String password = request.getParameter("pwd1");
             String password_repeat = request.getParameter("pwd2");
@@ -66,10 +68,13 @@ public class RegistrationServlet extends HttpServlet {
                 }
                 hashedpasswd.append(password);
             }
-
+                Random random = new Random();
+                int num = random.nextInt(15728640)+1048576;
+                auname = "Anonymous_User#" + Integer.toHexString(num);
+            
             //update database
-            int i = st.executeUpdate("insert into Users (uname, password, fname, lname, email, phone, address, tin) values ('" + uname + "', '" + hashedpasswd.toString() + "', '" + fname + "', '" + lname + "', '" + email + "', '" + phone + "', '" + loc + ' ' + country + "', '" + tin + "')");
-            i = st.executeUpdate("insert into bidder (user_id, location, country) values ('" + uname + "', '" + loc + "', '" + country + "')");
+            int i = st.executeUpdate("insert into Users (uname, password, fname, lname, email, phone, address, tin, auname) values ('" + uname + "', '" + hashedpasswd.toString() + "', '" + fname + "', '" + lname + "', '" + email + "', '" + phone + "', '" + loc + ' ' + country + "', '" + tin +"', '"+auname+ "')");
+            i = st.executeUpdate("insert into bidder (user_id, location, country, auname) values ('" + uname + "', '" + loc + "', '" + country+"', '" + auname + "')");
             con.close();
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/verify_wait.html");
             dispatcher.forward(request, response);

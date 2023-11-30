@@ -37,11 +37,12 @@ public class CreateBid extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             HttpSession session = request.getSession(false);
-            Object o=session.getAttribute("user");
-            String usr=(String)o;
+            Object o1=session.getAttribute("user");
+            String usr=(String)o1;
+            Object o2=session.getAttribute("auser");
+            String ausr=(String)o2;
             SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String date=sdf.format(new Date());
-            String uname="";
             String name = request.getParameter("name");
             String[] category = request.getParameterValues("cat");
             String buyprice = request.getParameter("buyp");
@@ -65,8 +66,7 @@ public class CreateBid extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost/MyEbayDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","MySQL1234");
             Statement st = con.createStatement();
-            int l=st.executeUpdate("insert into item (name,currently,first_bid,buy_price,number_of_bids,location,country,started,ends,seller_id,description,hasstarted) values('" + name + "','" + firstbid + "', '" + firstbid + "','" + buyprice + "','" + num + "', '" + location + "','" + country + "', '" + date + "', '" + enddate + "','" + usr + "','" + description + "','" + startval + "')");
-            ResultSet rs=st.executeQuery("select * from item order by item_id desc limit 1");
+            int l=st.executeUpdate("insert into item (name,currently,first_bid,buy_price,number_of_bids,location,country,started,ends,seller_id,description,hasstarted,auname) values('" + name + "','" + num + "', '" + firstbid + "','" + buyprice + "','" + num + "', '" + location + "','" + country + "', '" + date + "', '" + enddate + "','" + usr + "','" + description + "','" + startval + "','" + ausr + "')");            ResultSet rs=st.executeQuery("select * from item order by item_id desc limit 1");
             if(rs.next()){
                 String id=rs.getString(1);
                 int idi=Integer.valueOf(id);

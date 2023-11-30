@@ -27,8 +27,10 @@ public class UploadBid extends HttpServlet {
 
         try {
             HttpSession session = request.getSession(false);
-            Object o=session.getAttribute("user");
-            String usr=(String)o;
+            Object o1=session.getAttribute("user");
+            String usr=(String)o1;
+            Object o2=session.getAttribute("auser");
+            String ausr=(String)o2;
             SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String date=sdf.format(new Date());
             Class.forName("com.mysql.jdbc.Driver");
@@ -37,8 +39,7 @@ public class UploadBid extends HttpServlet {
             String id=request.getParameter("item_id");
             int idi=Integer.parseInt(id);
             String buy=request.getParameter("buyp");
-            int l=st.executeUpdate("insert into bid (item_id,user_id,time,amount) values('" + idi + "','" + usr + "', '" + date + "','" + buy + "')");
-            Statement st_2 = con.createStatement();
+            int l=st.executeUpdate("insert into bid (item_id,user_id,time,amount,auname) values('" + idi + "','" + usr + "', '" + date + "','" + buy +"','" + ausr + "')");            Statement st_2 = con.createStatement();
             ResultSet rs=st_2.executeQuery("SELECT * FROM item where item_id = '" + idi + "'");
             if(rs.next()){
                 int num=Integer.parseInt(rs.getString("number_of_bids"));
@@ -50,9 +51,9 @@ public class UploadBid extends HttpServlet {
                     int has=2;
                     int upd=st_3.executeUpdate("UPDATE item SET currently = '" + currently + "',number_of_bids = '" + num + "',hasstarted = '" + has + "' WHERE item_id = '" + idi + "' ");
                     String seller=rs.getString("seller_id");
+                    String aseller=rs.getString("auname");
                     Statement st_4 = con.createStatement();
-                    int lp=st_4.executeUpdate("insert into won (item_id,bidder,seller) values ('" + idi + "','" + usr + "','" + seller + "')");
-                }
+                    int lp=st_4.executeUpdate("insert into won (item_id,bidder,seller,abidder,aseller) values ('" + idi + "','" + usr + "','" + seller + "','" + ausr + "','" + aseller + "')");                }
                 else{
                     int upd=st_3.executeUpdate("UPDATE item SET currently = '" + currently + "',number_of_bids = '" + num + "' WHERE item_id = '" + idi + "' ");
                 }
