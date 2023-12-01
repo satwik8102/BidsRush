@@ -33,7 +33,7 @@
         <!--!-->
         <% //check if end date has passed
             Class.forName("com.mysql.jdbc.Driver");
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost/MyEbayDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTCjdbc:mysql://localhost/MyEbayDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "MySQL1234");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost/MyEbayDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "MySQL1234");
             Statement st_10 = con.createStatement();
             int hasn = 2;
             ResultSet rs_10 = st_10.executeQuery("SELECT * FROM item WHERE hasstarted != '" + hasn + "'");
@@ -89,6 +89,9 @@
             <div class="page_title">
                 <span>Welcome to biddit!</span>
             </div>
+            <div class="profile-button-container">
+    <a href="user_profile.jsp" class="profile-button">View Profile</a>
+</div>
             <div class="flex-container">
                 <%
                     while (rs.next()) {

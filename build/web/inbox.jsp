@@ -1,12 +1,15 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%
     Class.forName("com.mysql.jdbc.Driver");
     java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost/MyEbayDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "MySQL1234");
     Statement st_msg = con.createStatement();
     Statement st_item = con.createStatement();
-    ResultSet rs_msg, rs_item;
+    Statement st_1 = con.createStatement();
+    ResultSet rs_msg, rs_item,rs_1;
 %>
 <!DOCTYPE html>
 <html>
@@ -100,7 +103,7 @@
                 <div id="msg_modal_id" class="msg_modal" style="z-index: 99;">
                     <form class="msg_modal-content" action="msg_submit" method ="post" name="msg_box" style="background: url(./img/background.png); background-size: 50%;">
                         <span class="close">&times;</span>
-                        <input type="text" id="receiver" name="receiver" placeholder="Username" required>
+                        <!-- <input type="text" id="receiver" name="receiver" placeholder="Username" required> -->
                         <input type="text" id="itemid" name="itemid" placeholder="Item ID" required>
                         <textarea id="content" name="content" placeholder="Write your message.." style="height:200px" required></textarea>
                         <input type="image" name="submit" src="./img/icons/send_icon.png" border="0" alt="Submit" style="width: 50px;" />
@@ -123,9 +126,25 @@
                             <% rs_msg = st_msg.executeQuery("select * from messages where receiver_uname='" + (String) session.getAttribute("user") + "' and (deleted_for IS NULL or deleted_for!='" + (String) session.getAttribute("user") + "') ORDER BY time DESC");
                                 while (rs_msg.next()) {
                                     if (rs_msg.getString("viewed").equals("N")) { %> <tr style="font-weight:bold"> <% } else { %> <tr> <% }%>
-                                <td> <%= rs_msg.getString("sender_uname")%> </td>
+                               <% String sender ;
+                               rs_item = st_item.executeQuery("select * from item where item_id = '" + rs_msg.getString("item_id") + "' limit 1;");
+                               int check = 0;
+                               if (rs_item.next()) {
+                                check = rs_item.getInt("hasstarted");
+                                   }
+                              sender = rs_msg.getString("sender_uname");
+                               rs_1 = st_1.executeQuery("select * from users where uname='" + sender + "'");
+                               String auname ="";
+                               if(rs_1.next() && check == 1){
+                               auname = rs_1.getString("auname");}
+                               else {
+                               auname = rs_1.getString("uname");
+                                   }
+                                   
+                               %>         
+                                <td> <%= auname %> </td>
                                 <td> <% rs_item = st_item.executeQuery("select name from item where item_id = '" + rs_msg.getString("item_id") + "' limit 1;");
-//                                    while (rs_item.next()) {
+//                                 while (rs_item.next()) {
                                     if (rs_item.next()) {%>
                                     <%= rs_item.getString("name")%>
                                     <% }%>
@@ -165,7 +184,22 @@
                             <% rs_msg = st_msg.executeQuery("select * from messages where sender_uname='" + (String) session.getAttribute("user") + "' and deleted_for IS NULL or deleted_for!='" + (String) session.getAttribute("user") + "' ORDER BY time DESC");
                                 while (rs_msg.next()) {%>
                             <tr>
-                                <td> <%= rs_msg.getString("receiver_uname")%> </td>
+                                <% String rec ="" ;
+                                rs_item = st_item.executeQuery("select * from item where item_id = '" + rs_msg.getString("item_id") + "' limit 1;");
+                                int check = 0;
+                               if (rs_item.next()) {
+                                check = rs_item.getInt("hasstarted");
+                                   }
+                              rec = rs_msg.getString("receiver_uname");
+                               rs_1 = st_1.executeQuery("select * from users where uname='" + rec + "'");
+                               String auname1 ="";
+                               if(rs_1.next() && check == 1){
+                               auname1 = rs_1.getString("auname");}
+                               else {
+                               auname1 = rs_1.getString("uname");
+                                   }
+                               %>
+                                <td> <%= auname1%> </td>
                                 <td> <% rs_item = st_item.executeQuery("select name from item where item_id = '" + rs_msg.getString("item_id") + "' limit 1;");
                                     while (rs_item.next()) {%>
                                     <%= rs_item.getString("name")%>
