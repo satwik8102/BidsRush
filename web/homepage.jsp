@@ -89,9 +89,11 @@
             <div class="page_title">
                 <span>Welcome to biddit!</span>
             </div>
+            
             <div class="profile-button-container">
     <a href="user_profile.jsp" class="profile-button">View Profile</a>
 </div>
+            
             <div class="flex-container">
                 <%
                     while (rs.next()) {

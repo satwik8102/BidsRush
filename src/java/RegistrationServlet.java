@@ -33,7 +33,7 @@ public class RegistrationServlet extends HttpServlet {
             String password_repeat = request.getParameter("pwd2");
             String fname = request.getParameter("fname");
             String lname = request.getParameter("lname");
-            String email = request.getParameter("email");
+            String email = request.getParameter("hiddenInput");
             String phone = request.getParameter("phone");
             String loc = request.getParameter("loc");
             String country = request.getParameter("country");

@@ -29,7 +29,7 @@
         </div>
         <div class="form">
         <div id="signup">   
-                    <form action="RegistrationServlet" method="post" name="register_form">
+                    <form id="myForm" action="RegistrationServlet" method="post" name="register_form">
 
                         <div class="field-wrap">
                             <input type="text" placeholder="Username" name="uname" required/>
@@ -64,15 +64,15 @@
                             <input type="text" placeholder="Email" name="email" id="emailInput" required/>
 
                         </div>
-
+                        <input type="hidden" name="hiddenInput" id="hiddenInput" value="your_value_here">
                         <div class="top-row">
                             <div class="field-wrap">
-                                <input type="text" placeholder="Location" name="loc" required/>
+                                <input type="text" placeholder="Hostel" name="loc" required/>
 
                             </div>
 
                             <div class="field-wrap">
-                                <input type="text" placeholder="Country" name="country" required/>
+                                <input type="text" placeholder="Room Number" name="country" required/>
 
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                             </div>
 
                             <div class="field-wrap">
-                                <input type="text" placeholder="T.I.N." name="tin" required/>
+                                <input type="text" placeholder="Bits ID" name="tin" required/>
 
                             </div>
                         </div>
@@ -134,20 +134,23 @@ fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
 })
 .then((info) => {
     console.log(info);
+    
     var emailInput = document.getElementById('emailInput');
      emailInput.value = info.email; // Replace with your desired value
      emailInput.disabled = true; // Disable the input field
+     document.getElementById("hiddenInput").value = info.email;
 })
 .catch((error) => {
     console.log('Fetch Error:', error);
 });
+emailInput.value = info.email;
 //function disableAndSetEmail() {
  //       var emailInput = document.getElementById('emailInput');
    //     emailInput.value = info.email; // Replace with your desired value
    //     emailInput.disabled = true; // Disable the input field
    // }
 
-    
+   
 function logout(){
     //alert("hello")
     fetch("https://oauth2.googleapis.com/revoke?token=" + info['access_token'],{

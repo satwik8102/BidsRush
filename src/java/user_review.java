@@ -16,11 +16,12 @@ public class user_review extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        HttpSession session = request.getSession(false);
-        String uname = request.getParameter("profile_uname");
-        if (uname != null && !uname.isEmpty()) {
-           RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/user_review.jsp?profile_uname="+uname);
-           rd.forward(request, response);           
-        }     
+        HttpSession session = request.getSession();
+        session.getAttribute("user_type");
+        response.sendRedirect("/user_profile.jsp");
+        
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("user_profile.jsp");
+        rd.forward(request, response);           
+            
     }
 }
