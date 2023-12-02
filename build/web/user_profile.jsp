@@ -1,13 +1,7 @@
+
 <%@ page import="java.sql.*"%>
 <%@ page import="javax.sql.*"%>
 <%@ page import="javax.servlet.http.HttpSession"%>
-<%@ page import="java.sql.ResultSet"%>
-<%@ page import="java.sql.Statement"%>
-<%@ page import="java.sql.DriverManager"%>
-<%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.io.*" %>
-<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,27 +12,19 @@
     <link rel="stylesheet" href="./css/user_profile.css"> <!-- Ensure you have this CSS file for styling -->
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
-    <script>
-            $(function () {
-                $("#header").load("./jsp/header.jsp");
-            });
-            <% session.removeAttribute("active_tab"); %>
-             
-        </script>
 </head>
 <body>
-    <div class="header" style="height: auto;">
+    <div class="header" style="height: 75px;">
         <a class="logo" href="homepage.jsp">
             <img alt="homepage" title="biddit" src="./img/logo/logo_350x150.png">
         </a>
         <div class="welcome_box">
-            User Profile Page
+            Dashboard
         </div>
         <div class="icon_list">
             <a href="LogoutServlet"><img  id="exit_icon" src="./img/icons/exit_icon_v2.png"  alt="Sign Out" title="Sign Out"></a>
         </div>
-    </div>  
-    <div id="header"> </div>
+    </div>
     <div class="center-container">
     <div class="main_body">
         <% 
@@ -59,7 +45,7 @@
 
 <div class="profile-container">
     <div class="user-details">
-        <h2>User Profile</h2>
+        <h2>User Details</h2>
         <!-- User Details -->
         <div class="detail">
             <span class="label">Username:</span>

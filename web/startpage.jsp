@@ -31,7 +31,7 @@
             }%>
 
         <div class="fadeIn first">
-            <img src="./img/logo/logo_350x150.png" class="logo" alt="Logo 350x150"/>
+            <img src="./img/logo/logo1.png" class="logo" alt="Logo 350x150"/>
         </div>
         <div class="form">
             

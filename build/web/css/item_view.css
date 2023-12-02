@@ -193,7 +193,7 @@ body {
     font-size: 28px;
     text-align: right;
     box-shadow: none;
-    color: black;
+    color: white;
     border: 1px solid var(--site_orange);
     border-color: var(--site_orange);
     -webkit-box-shadow: none;
@@ -212,7 +212,7 @@ input[type=submit] {
     height: 50px;
     background-color: var(--site_orange);
     border: none;
-    color: black;
+    color: white;
     padding: auto 5px;
     text-decoration: none;
     cursor: pointer;

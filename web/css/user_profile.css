@@ -1,16 +1,23 @@
+body {
+    background-image: url('/img/bidrush_background.png'); /* Replace with your image file name */
+    background-repeat: no-repeat;
+    background-size: cover; /* This will cover the entire area */
+    background-position: center; /* Center the image */
+}
+
 .center-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 107px); /* Subtract the header height */
+    height: calc(100vh + 90px);
     margin: 0;
     padding: 0;
 }
 
 .main-body {
-    width: auto;
+    width: 70vh;
     margin: 20px;
-    max-width: 600px;
+    max-width: 70vh;
     padding: 2em;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
     background: #ffffff;
@@ -18,52 +25,67 @@
 }
 
 .profile-container {
-    width: 80%;
+    width: 70vh;
     max-width: 600px;
     margin: auto;
     padding: 2em;
-    background: #ffffff;
+    background: light grey;
     border-radius: 8px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    transform: translateY(-20px);
+    transform: translateY(-50px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    perspective: 1000px; /* Define the perspective for 3D effects */
 }
 
 .profile-container:hover {
-    transform: translateY(-30px) rotateX(5deg);
+    transform: translateY(-60px);
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .user-details {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     align-items: center;
-    text-align: left;
+}
+
+.user-details .detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .user-details h2 {
-    grid-column: 1 / -1;
-    color: #333333;
+    color: black;
     text-align: center;
+}
+
+.user-details .label, .user-details .value {
+    display: inline-block;
+    margin-right: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+    color: #fff; /* White text for both labels and values */
 }
 
 .user-details .label {
     font-weight: bold;
-    color: #555555;
+    background: #000000; /* Black background for labels */
+    width: 125px;
 }
 
 .user-details .value {
-    background: #e9e9e9;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transform: translateZ(20px); /* Add a slight 3D effect on each box */
-    transition: transform 0.3s ease;
+    background: #172738; /* Light blue background for values */
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.user-details:hover .value {
-    transform: translateZ(30px) rotateY(5deg); /* Apply 3D effect on hover */
+.user-details .label:hover, .user-details .value:hover {
+    transform: translateY(-5px);
 }
 
 @media (max-width: 768px) {
@@ -71,13 +93,13 @@
         width: 90%;
         transform: translateY(0);
     }
-
+    
     .user-details {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
-
+    
     .profile-container:hover {
         box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-        transform: translateY(0) rotateX(0);
+        transform: translateY(0);
     }
 }

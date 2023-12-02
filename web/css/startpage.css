@@ -9,11 +9,12 @@
 
 
 :root {
-    --site_orange: #ff4500;
-    --site_orange_shadow: #B23000;
+    --site_orange: #09315B;
+    --site_orange_shadow: #788899;
     --site_gray_dark: #4f4f51;
-    --site_gray_light: #d6d6d6;
+    --site_gray_light: #FFFFFF;
     --site_black: #2c2b30;
+    --site_text: #BABDBF;
 }
 
 *, *:before, *:after {
@@ -25,14 +26,14 @@ html {
 }
 
 body {
-    background: url(../img/background.png) top left repeat;
-    background-size: 25%;
+    background: url(../img/bkgrd.png) top left repeat;
+    background-size: 100%;
     font-family: 'poppins';
 }
 
 a {
     text-decoration: none;
-    color: var(--site_orange);
+    color: var(--site_gray_light);
     transition: .5s ease;
 }
 a:hover {
@@ -40,7 +41,7 @@ a:hover {
 }
 
 .form {
-    background: var(--site_black);
+    background: var(--site_text);
     padding: 40px;
     max-width: 600px;
     margin: 10px auto;
@@ -100,7 +101,7 @@ input, textarea {
     background: none;
     background-image: none;
     border: 1px solid #a0b3b0;
-    color: #ffffff;
+    color: #FFFFFF;
     border-radius: 0;
     transition: border-color .25s ease, box-shadow .25s ease;
 }
@@ -176,7 +177,7 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .visitor:hover { 
-    color: var(--site_orange); 
+    color: var(--site_orange_shadow); 
     transition: all 0.1s ease; 
 }
 
@@ -213,14 +214,16 @@ button, input[type="submit"], input[type="reset"] {
 
 .logo {
     position: absolute;
-    margin: 0 auto 0 auto;
+    height: 195px;
+    width: 215px;
+    margin: 0 auto 10px auto;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
 }
 
-/*waiting for verification page css*/
+
 
 .main_box{
     background: var(--site_black);

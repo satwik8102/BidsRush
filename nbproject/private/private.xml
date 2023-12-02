@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/signup.jsp</file>
-            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/jsp/header.jsp</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/startpage.jsp</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/user_profile.jsp</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/src/java/LoginServlet.java</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/src/java/CreateBid.java</file>
             <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/inbox.jsp</file>
             <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/homepage.jsp</file>
-            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/src/java/msg_submit.java</file>
             <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/src/java/RegistrationServlet.java</file>
         </group>
     </open-files>

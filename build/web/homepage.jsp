@@ -10,7 +10,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>biddit - Welcome!</title>
+        <title>bidrush - Welcome!</title>
         <link rel="stylesheet" href="./css/homepage.css">
         <link rel="stylesheet" href="./css/items_list_view.css">
         <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
@@ -87,7 +87,7 @@
             <!-- Live bids navigation (hasstarted==1) -->
 
             <div class="page_title">
-                <span>Welcome to biddit!</span>
+                <span>Welcome to BidRush!</span>
             </div>
             
             <div class="profile-button-container">

@@ -91,7 +91,7 @@
                 // if category input
                 if (val.equals("f1") || val.equals("f2")) {   //category input
                     String cat = request.getParameter("cat");
-                    cattrs = st.executeQuery("SELECT * FROM category WHERE category_name = '" + cat + "'");
+                    cattrs = st.executeQuery("SELECT * FROM category");
                     if (!cattrs.isBeforeFirst()) {
 
             %> <div class="no_results">
@@ -164,10 +164,7 @@
             </div> <%
             } else {   //not category input
                 int vall = 1;
-                if (val.equals("f3")) {
-                    String loc = request.getParameter("loc");
-                    rs = st.executeQuery("SELECT * FROM item WHERE location LIKE '%" + loc + "%' OR country LIKE '%" + loc + "%' AND hasstarted = '" + vall + "' ");
-                } else if (val.equals("f4")) {
+                if (val.equals("f4")) {
                     String descr = request.getParameter("desc");
                     rs = st.executeQuery("SELECT * FROM item WHERE desc CONTAINS '" + descr + "' AND hasstarted = '" + vall + "' ");
                 } else if (val.equals("f5")) {
@@ -178,12 +175,12 @@
                     rs = st.executeQuery("SELECT * FROM item WHERE buy_price > '" + f_from + "' AND  buy_price < '" + f_to + "' AND hasstarted = '" + vall + "' ");
                 } else if (val.equals("f6")) {
                     String kwd = request.getParameter("kwd");
-                    String cat = request.getParameter("cat");
-                    if (cat.equals("all")) {
+                   // String cat = request.getParameter("cat");
+                   // if (cat.equals("all")) {
                         rs = st.executeQuery("SELECT * FROM item WHERE description LIKE '%" + kwd + "%' or name LIKE '%" + kwd + "%' and hasstarted = 1");
-                    } else {
-                        rs = st.executeQuery("SELECT * FROM item WHERE description LIKE '%" + kwd + "%' or name LIKE '%" + kwd + "%' and hasstarted = 1 and item_id in (select item_id from category where category_name = '" + cat + "');");
-                    }
+                   // } else {
+                   //     rs = st.executeQuery("SELECT * FROM item WHERE description LIKE '%" + kwd + "%' or name LIKE '%" + kwd + "%' and hasstarted = 1 and item_id in (select item_id from category where category_name = '" + cat + "');");
+                   // }
                 } %>
 
             <%        if (!rs.isBeforeFirst()) {

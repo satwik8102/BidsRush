@@ -6,10 +6,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>biddit - Welcome!</title>
+        <title>bidrush - Welcome!</title>
         <link rel="stylesheet" href="./css/header.css">
         <link rel="stylesheet" href="./css/advanced_search.css">
-        <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+         <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <style>
@@ -41,8 +41,8 @@
                 <form action="./searchres.jsp" method="post">
                     <button type="submit" class="search_button" name="sbm" value="Submit"><img src="./img/icons/search_icon.png" height="18"></button>
                     <input name="formn" type="hidden" value="f6"/>
-                    <input type="text" placeholder="What are you looking for?" name="kwd" required/>
-                    <select class="dropdown" name="cat">
+                    <input type="text" placeholder="Search" name="kwd" required/>
+<!--                    <select class="dropdown" name="cat">
                         <option value="all" name="cat" selected>All Categories<i class='fas fa-sort-down'></i></option>
                         <%
                             Class.forName("com.mysql.jdbc.Driver");
@@ -55,7 +55,7 @@
                         <%
                             }
                         %>    
-                    </select>
+                    </select>-->
                 </form>
             </div>
             <div class="icon_list">
@@ -135,12 +135,12 @@
                     </div>
                 </form>
                 <form action="searchres.jsp" method="post" class="search_form">
-                    <div id="field">
+<!--                    <div id="field">
                         <span id="field_title">Location</span>
                         <input type="text" name="loc" name="name" placeholder="Insert a location...">
                         <input name="formn" type="hidden" value="f3" >
                         <button type="submit" name="sbm" value="Submit" class="button button-block"><i class="fa fa-arrow-circle-right"></i></button>
-                    </div>
+                    </div>-->
                 </form>
                 <form action="searchres.jsp" method="post" class="search_form">
                     <div id="price">
