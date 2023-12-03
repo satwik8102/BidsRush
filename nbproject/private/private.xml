@@ -4,12 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/startpage.jsp</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/editbids.jsp</file>
             <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/user_profile.jsp</file>
-            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/src/java/LoginServlet.java</file>
-            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/src/java/CreateBid.java</file>
-            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/inbox.jsp</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/searchres.jsp</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/css/user_profile.css</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/css/homepage.css</file>
             <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/homepage.jsp</file>
-            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/src/java/RegistrationServlet.java</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/jsp/header.jsp</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/createbids.jsp</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/WEB-INF/verify_wait.html</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/inbox.jsp</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/item_view.jsp</file>
+            <file>file:/C:/Users/satwi/Desktop/OOPS/BidsRushFinal/web/css/advanced_search.css</file>
         </group>
     </open-files>
 </project-private>

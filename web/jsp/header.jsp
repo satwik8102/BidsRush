@@ -20,7 +20,7 @@
                 border-bottom: 3px solid var(--site_orange);
             }
             <%      } else if (session.getAttribute("active_tab").equals("tab_2")) {%>
-            #navigate{    
+            #h0me{    
                 background-color: transparent;
                 border-bottom: 3px solid var(--site_orange);
             }
@@ -70,18 +70,9 @@
                 <a href="LogoutServlet"><img  id="exit_icon" src="./img/icons/exit_icon_v2.png"  alt="Sign Out" title="Sign Out"></a>
                 
                 
-                <!--                if verified user-->
                 <% } else { %>
 
-                <!-- removed - to vrika perrito telika
-                <div class="mybids_options">
-                    <button class="dropbtn"><img  src="./img/icons/mybids_icon.png" alt="My Bids" title="My Bids"></button>
-                    <div class="dropdown-content">
-                        <a href="./createbids.jsp">Create a Bid</a>
-                        <a href="./navigatebids.jsp">View my Live Bids</a>
-                        <a href="./editbids.jsp">Edit my Bids</a>
-                    </div>
-                </div> -->
+
                 <%  Class.forName("com.mysql.jdbc.Driver");
                     st = con.createStatement();
                     rs = st.executeQuery("select * from messages where viewed = 'N' and receiver_uname = '" + session.getAttribute("user") + "' and (deleted_for != '" + session.getAttribute("user") + "' or deleted_for is NULL) limit 1 ;");
@@ -102,8 +93,8 @@
                         <%
                         } else {
                         %>
+                    <li><a href="homepage.jsp" id="h0me">home</a></li>
                     <li><a href="createbids.jsp" id="createbids">create bid</a></li>
-                    <li><a id="navigate">advanced search</a></li>
                     <li><a href="navigatebids.jsp" id="navigatebids">my live bids</a></li>
                         <%
                             }

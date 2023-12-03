@@ -136,7 +136,7 @@
                                rs_1 = st_1.executeQuery("select * from users where uname='" + sender + "'");
                                String auname ="";
                                if(rs_1.next() && check == 1){
-                               auname = rs_1.getString("auname");}
+                               auname = "Anonymous_User";}
                                else {
                                auname = rs_1.getString("uname");
                                    }
@@ -194,7 +194,7 @@
                                rs_1 = st_1.executeQuery("select * from users where uname='" + rec + "'");
                                String auname1 ="";
                                if(rs_1.next() && check == 1){
-                               auname1 = rs_1.getString("auname");}
+                               auname1 = "Anonymous_User";}
                                else {
                                auname1 = rs_1.getString("uname");
                                    }

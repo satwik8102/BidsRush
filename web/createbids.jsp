@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>biddit - Create Bid</title>
+        <title>bidrush - Create Bid</title>
         <link rel="stylesheet" href="./css/homepage.css">
         <link rel="stylesheet" href="./css/createbids.css">
         <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
@@ -87,13 +87,13 @@
 
                 <!--Location-->
                 <div class="field_options" id="box35">
-                    <span id="field_title"> City</span>
+                    <span id="field_title"> How Old?</span>
                     <input type="text" name="loc" required>
                 </div>
 
                 <!--Country-->
                 <div class="field_options" id="box35">
-                    <span id="field_title"> Country</span>
+                    <span id="field_title"> Used Condition</span>
                     <input type="text" name="country" required>
                 </div>
 

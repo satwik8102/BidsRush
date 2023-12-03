@@ -93,9 +93,11 @@
                         }
                         String hr="https://www.openstreetmap.org/search?query="+qr;
                         %>
-                        <a href="<%=hr%>" target="_blank" >click to view map</a> </br> 
+                       
+                        
                         Start Date: <%=rs.getString("started")%> </br>
                         End Date: <%=rs.getString("ends")%> </br>
+                        Item ID: <%=rs.getString("item_id")%>
                     </div>
                     <div class="full_panel" style="min-height: 100px; font-style: italic;  ">
                         <%=rs.getString("description")%>.

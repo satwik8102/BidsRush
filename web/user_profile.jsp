@@ -8,18 +8,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User Profile</title>
+     <style>
+        .welcome_box {
+            font-size: 2.1em; /* You can adjust the size as needed */
+        }
+    </style>
     <link rel="stylesheet" href="./css/homepage.css">
     <link rel="stylesheet" href="./css/user_profile.css"> <!-- Ensure you have this CSS file for styling -->
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/logo1.png" type="image/x-icon">
+    <link rel="icon" href="./img/logo1.png" type="image/x-icon">
 </head>
 <body>
-    <div class="header" style="height: 75px;">
+    <div class="header" style="height: 105px;">
         <a class="logo" href="homepage.jsp">
             <img alt="homepage" title="biddit" src="./img/logo/logo_350x150.png">
         </a>
         <div class="welcome_box">
-            Dashboard
+            User Profile
         </div>
         <div class="icon_list">
             <a href="LogoutServlet"><img  id="exit_icon" src="./img/icons/exit_icon_v2.png"  alt="Sign Out" title="Sign Out"></a>
@@ -45,7 +50,7 @@
 
 <div class="profile-container">
     <div class="user-details">
-        <h2>User Details</h2>
+        <h2>Details</h2>
         <!-- User Details -->
         <div class="detail">
             <span class="label">Username:</span>
@@ -60,6 +65,10 @@
             <span class="value"><%= rs.getString("lname") %></span>
         </div>
         <div class="detail">
+            <span class="label">ID:</span>
+            <span class="value"><%= rs.getString("tin") %></span>
+        </div>
+        <div class="detail">
             <span class="label">Email:</span>
             <span class="value"><%= rs.getString("email") %></span>
         </div>
@@ -68,13 +77,10 @@
             <span class="value"><%= rs.getString("phone") %></span>
         </div>
         <div class="detail">
-            <span class="label">Address:</span>
+            <span class="label">Hostel:</span>
             <span class="value"><%= rs.getString("address") %></span>
         </div>
-        <div class="detail">
-            <span class="label">TIN:</span>
-            <span class="value"><%= rs.getString("tin") %></span>
-        </div>
+        
     </div>
 </div>
 </div>
